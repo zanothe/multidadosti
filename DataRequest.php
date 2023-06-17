@@ -151,35 +151,14 @@ class DataRequest {
     }
 }
 
-/*if(isset($_GET['count'])) {
-	$data = new DataRequest();
-	$class = $_GET['count'];	
-	switch($class) {
-		case 'users':
-			echo 	$data->dadosUsuarios('c');
-		case 'clients':
-			echo 	$data->dadosClientes('c');
-		case 'suppliers':
-			echo 	$data->dadosFornecedores('c');
-	} 
-}*/
-
-
 $data = new DataRequest();
 $clientes = $data->dadosClientes();
 $fornecedores = $data->dadosFornecedores();
 $usuarios = $data->dadosUsuarios();
-//var_dump(json_encode($clientes));
-/*foreach($clientes as $clients) {
-	for($i=0; $i < count($clientes); $i++) {
-			json_encode($clientes)		
-		}	
-	}
-//}*/
+
 
 $array = array("Users" => $usuarios, "Suppliers" => $fornecedores, "Clients" => $clientes);
 $json = json_encode($array);
-//var_dump($json);
 
 echo $json;
 
